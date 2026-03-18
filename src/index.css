@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-bg-base: #0A0A0B;
+  --color-bg-surface: #111113;
+  --color-bg-elevated: #1A1A1E;
+  --color-bg-hover: #242428;
+
+  --color-border-subtle: #1E1E22;
+  --color-border-default: #2A2A30;
+  --color-border-strong: #3A3A42;
+
+  --color-text-primary: #F5F5F7;
+  --color-text-secondary: #8E8E9A;
+  --color-text-muted: #55555F;
+
+  --color-accent: #3B82F6;
+  --color-accent-hover: #2563EB;
+  --color-accent-muted: #1D3461;
+
+  --color-red-brand: #EF4444;
+  --color-green-brand: #22C55E;
+  --color-amber-brand: #F59E0B;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-base text-text-primary font-sans antialiased;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-base;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border-default rounded-full hover:bg-border-strong transition-colors;
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.glass-nav {
+  @apply sticky top-0 z-50 backdrop-blur-xl bg-bg-base/85 border-b border-border-subtle;
+}
+
+.card-base {
+  @apply bg-bg-surface border border-border-default rounded-xl p-6;
+}
+
+.input-base {
+  @apply bg-bg-elevated border border-border-default rounded-md h-10 px-3 text-sm text-text-primary placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-3 focus:ring-accent/15 transition-all;
+}
+
+.btn-primary {
+  @apply bg-accent hover:bg-accent-hover text-white font-medium px-5 py-2 rounded-full transition-colors disabled:opacity-40 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-bg-elevated border border-border-default hover:bg-bg-hover text-text-primary font-medium px-5 py-2 rounded-full transition-colors;
+}
+
+.btn-ghost {
+  @apply text-text-secondary hover:text-text-primary hover:bg-bg-hover p-2 rounded-full transition-all;
+}

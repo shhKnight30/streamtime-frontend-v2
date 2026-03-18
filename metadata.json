@@ -1,0 +1,5 @@
+{
+  "name": "StreamTime",
+  "description": "A premium video streaming and social platform for creators and communities.",
+  "requestFramePermissions": ["camera", "microphone"]
+}
